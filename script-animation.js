@@ -1,4 +1,4 @@
-var theWindow = window;
+var theWindow = $(window);
 var winHeight = theWindow.height();
 var scrollS = theWindow.scrollTop;
 var animDuration = winHeight * 1.5;
@@ -17,6 +17,6 @@ var block1 = document.getElementById('rec733395988');
 var block2 = document.getElementById('rec733423280');
 var block3 = document.getElementById('rec733424705');
 var block4 = document.getElementById('rec733428485');
-$( window ).scroll(function() {animatebodymovin(0, animDuration, anim0); animatebodymovin2(300, 2000, anim1, block1, 1.2); animatebodymovin2(300, 2000, anim2, block2, 1.2); animatebodymovin2(300, 2000, anim3, block3, 1.2); animatebodymovin2(300, 1800, anim4, block4, 1.0); });
+$(window).scroll(function() {animatebodymovin(0, animDuration, anim0); animatebodymovin2(300, 2000, anim1, block1, 1.2); animatebodymovin2(300, 2000, anim2, block2, 1.2); animatebodymovin2(300, 2000, anim3, block3, 1.2); animatebodymovin2(300, 1800, anim4, block4, 1.0); });
 function animatebodymovin(delay, duration, animObject) {var scrollPosition = theWindow.scrollTop() - delay; var maxFrames = animObject.totalFrames; var frame = (maxFrames / 100) * (scrollPosition / (duration / 100)); if (frame >= maxFrames) {frame = maxFrames - 1;return frame; } else if (frame <= 0) {frame = 1; return frame; } animObject.goToAndStop(frame, true); }
 function animatebodymovin2(delay, duration, animObject, animBlock, speed) {var topPosition = animBlock.getBoundingClientRect().top; var scroll = winHeight - topPosition; var maxFrames = animObject.totalFrames; var frame = maxFrames * (((scroll - delay)) / (duration - delay)) * speed; if (frame >= maxFrames) {frame = maxFrames - 1; return frame; } else if (frame <= 0) {frame = 1; return frame; } animObject.goToAndStop(frame, true); }
